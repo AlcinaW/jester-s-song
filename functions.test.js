@@ -16,3 +16,22 @@ test('Add 2 + 2 to NOT equal 5', () => {
 // toBeDefined is the opposite of toBeUndefined
 // toBeTruthy matches anything that an if statement treats as true
 // toBeFalsy matches anything that an if statement treats as false
+
+//checking for null
+test('Should be null', () => {
+    expect(functions.isNull()).toBeNull();
+});
+
+//should be falsy, ex. null, 0, undefined
+test('Should be falsy', () => {
+    expect(functions.checkValue(undefined)).toBeFalsy();
+});
+
+//toBe can't be used on an object, different memory spaces even if the object looks the same visually
+test('User should be Jester Lavorre object', () => {
+    expect(functions.createUser()).toEqual({
+        firstName: 'Jester',
+        lastName: 'Lavorre'
+    });
+});
+
