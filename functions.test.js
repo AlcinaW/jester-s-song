@@ -36,16 +36,42 @@ test('User should be Jester Lavorre object', () => {
     });
 });
 
-//Less than and greate than
+// less than and greater than
 test('Should be under 1600', () => {
     const load1 = 800;
     const load2 = 700;
     expect(load1 + load2).toBeLessThan(1600);
 });
 
-// Regular expressions
-test('There is no I in cheeto', () => {
-    expect('cheeto').not.toMatch(/I/);
+// regular expressions
+test('There is no a in diceroll', () => {
+    expect('diceroll').not.toMatch(/I/);
 });
 
-// Arrays 
+// arrays 
+test('Admin should be in usernames', () => {
+    usernames = ['Caduceus', 'Clay', 'admin'];
+    expect(usernames).toContain('admin');
+});
+
+// working with async data
+
+// promise
+//test('User fetched name should be Leanne Graham', () => {
+//verify that the number of assertions were called 
+// check that the .then was actually called  
+// need return statement to make sure that the test doesn't complete before the fetch is complete
+//     expect.assertions(1);
+//     return functions.fetchUser()
+//         .then(data => {
+//             expect(data.name).toEqual('Leanne Graham');
+//         })
+// });
+
+// async await
+test('User fetched name should be Leanne Graham', async () => {
+    expect.assertions(1);
+    const data = await functions.fetchUser();
+    expect(data.name).toEqual('Leanne Graham');
+});
+
